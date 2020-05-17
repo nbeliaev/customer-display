@@ -32,11 +32,11 @@ public class MessagesRestController {
         }
 
         var cashier = cashierService.getByUuid(message.getCashier().getUuid());
-        if (cashier == null) {
+        if (cashier.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        messagingTemplate.convertAndSend("/topic/message", message);
+        messagingTemplate.convertAndSend("/topic/message." + message.getCashier().getUuid(), message);
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 }

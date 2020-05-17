@@ -4,7 +4,8 @@ import java.time.LocalDateTime;
 
 public class Cashier {
     private String uuid;
-    private String name;
+    private String description;
+    private String computerName;
     private LocalDateTime startDate;
 
     {
@@ -14,9 +15,10 @@ public class Cashier {
     public Cashier() {
     }
 
-    public Cashier(String uuid, String name) {
+    public Cashier(String uuid, String description, String computerName) {
         this.uuid = uuid;
-        this.name = name;
+        this.description = description;
+        this.computerName = computerName;
     }
 
     public String getUuid() {
@@ -27,23 +29,28 @@ public class Cashier {
         this.uuid = uuid;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public LocalDateTime getStartDate() {
-        return startDate;
+    public String getComputerName() {
+        return computerName;
+    }
+
+    public void setComputerName(String computerName) {
+        this.computerName = computerName;
     }
 
     @Override
     public String toString() {
         return "Cashier{" +
                 "uuid='" + uuid + '\'' +
-                ", name='" + name + '\'' +
+                ", name='" + description + '\'' +
+                ", computerName='" + computerName + '\'' +
                 '}';
     }
 }

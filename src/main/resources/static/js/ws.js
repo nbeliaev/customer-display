@@ -6,7 +6,7 @@ function connect() {
     {},
     (frame) => {
       console.log("Connected: " + frame);
-      stompClient.subscribe("/topic/message", (response) => {
+      stompClient.subscribe("/topic/message." + $("#uuid").val(), (response) => {
         updateDisplay(JSON.parse(response.body));
       });
     },

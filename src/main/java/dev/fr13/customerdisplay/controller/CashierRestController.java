@@ -26,7 +26,7 @@ public class CashierRestController {
     public ResponseEntity<Cashier> registerCashier(@RequestBody Message message) {
         logger.info("retrieved message: {}", message);
         cashierService.insert(message.getCashier());
-        messagingTemplate.convertAndSend("/topic/message", message);
+        messagingTemplate.convertAndSend("/topic/message." + message.getCashier().getUuid(), message);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -34,7 +34,7 @@ public class CashierRestController {
     public ResponseEntity<Cashier> deleteCashier(@RequestBody Message message) {
         logger.info("retrieved message: {}", message);
         cashierService.delete(message.getCashier().getUuid());
-        messagingTemplate.convertAndSend("/topic/message", message);
+        messagingTemplate.convertAndSend("/topic/message." + message.getCashier().getUuid(), message);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
