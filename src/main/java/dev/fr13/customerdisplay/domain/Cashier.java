@@ -1,12 +1,15 @@
 package dev.fr13.customerdisplay.domain;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.List;
 
 public class Cashier {
     private String uuid;
     private String description;
     private String computerName;
     private LocalDateTime startDate;
+    private List<String> images;
 
     {
         startDate = LocalDateTime.now();
@@ -43,6 +46,18 @@ public class Cashier {
 
     public void setComputerName(String computerName) {
         this.computerName = computerName;
+    }
+
+    public List<String> getImages() {
+        return Collections.unmodifiableList(images);
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
+    }
+
+    public void addImageName(String name) {
+        images.add(name);
     }
 
     @Override

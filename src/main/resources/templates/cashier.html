@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Cashier</title>
+    <title>Касса</title>
     <meta charset="utf-8">
     <link rel="shortcut icon" type="/image/png" href="/img/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,29 +25,29 @@
     <input type="hidden" th:value="${uuid}" id="uuid">
 
     <div class="alert alert-danger alert-dismissible fade show text-center" role="alert" id="noConnection">
-        Couldn't connect to the server. Try to reload this page.
+        Не удалось подключиться к серверу. Попробуйте обновить страницу.
     </div>
 
     <div class="card">
         <div class="card-body">
             <!--get text from cashier settings-->
-            <h1 class="card-title text-center display-3" id="message-head">Cashier is temporarily unavailable</h1>
+            <h1 class="card-title text-center display-3" id="message-head">Касса временно не работает</h1>
             <h1 class="card-title text-center display-4" id="message-body"></h1>
         </div>
 
         <div class="card-footer text-muted d-flex mb-0">
             <div class="mr-auto p-2">
-                <h3><span>Customer <span>
+                <h3><span>Покупатель <span>
                             <span class="font-weight-bold" id="customer"></span>
                 </h3>
             </div>
             <div class="p-2">
-                <h3><span>Discount <span>
+                <h3><span>Скидка <span>
                             <span class="font-weight-bold" id="discount">0.00</span>
                 </h3>
             </div>
             <div class="p-2">
-                <h3><span>Amount <span>
+                <h3><span>К оплате <span>
                             <span class="font-weight-bold" id="amount">0.00</span>
                 </h3>
             </div>

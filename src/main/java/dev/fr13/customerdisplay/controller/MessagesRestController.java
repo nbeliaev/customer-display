@@ -31,12 +31,12 @@ public class MessagesRestController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        var cashier = cashierService.getByUuid(message.getCashier().getUuid());
-        if (cashier.isEmpty()) {
+        var opCashier = cashierService.getByUuid(message.getCashier().getUuid());
+        if (opCashier.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        messagingTemplate.convertAndSend("/topic/message." + message.getCashier().getUuid(), message);
+        messagingTemplate.convertAndSend("/topic/message." + opCashier.get().getUuid(), message);
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 }
